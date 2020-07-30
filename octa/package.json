@@ -15,6 +15,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-tag-input": "^6.4.3",
+    "reactstrap-date-picker": "^0.0.9",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^1.0.0"
   },

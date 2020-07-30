@@ -17,9 +17,7 @@ class create extends Component {
     this.state = {
       name: '',
       description: '',
-      tags: [
-        { id: 'English', text: 'English' }
-      ],
+      tags: [],
       suggestions: [
         { id: 'English', text: 'English' },
         { id: 'React', text: 'React' },
@@ -38,7 +36,7 @@ class create extends Component {
     this.onhandleDrag = this.onhandleDrag.bind(this)
   }
 
-  handlechange = (e) => {
+  handlechange (e) {
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -73,11 +71,11 @@ class create extends Component {
             <Form>
               <Form.Group controlId='formGroupName'>
                 <Form.Label>Name:</Form.Label>
-                <Form.Control autoFocus required type='name' placeholder='Enter Name' name='name' value={name} onChange={this.handlechange} />
+                <Form.Control autoFocus minLength='5' maxLength='20' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />
               </Form.Group>
               <Form.Group controlId='formGroupDescription'>
                 <Form.Label>Description</Form.Label>
-                <Form.Control required as='textarea' rows='3' placeholde='Description' name='description' value={description} onChange={this.handlechange} />
+                <Form.Control minLength='20' required as='textarea' autoComplete='off' rows='3' placeholder='Description' name='description' value={description} onChange={(e) => this.handlechange(e)} />
               </Form.Group>
               <Form.Group controlId='formGroupTech'>
                 <Form.Label>Technologies</Form.Label>
@@ -86,6 +84,7 @@ class create extends Component {
                   placeholder='Add Technology'
                   name='tech'
                   id='tech'
+                  autofocus={false}
                   tags={tags}
                   suggestions={suggestions}
                   handleDelete={this.onhandleDelete}
