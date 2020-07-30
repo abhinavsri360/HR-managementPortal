@@ -62,13 +62,18 @@ class create extends Component {
     this.setState({ tags: newTags })
   }
 
+  submitHandler (e) {
+    e.preventDefault()
+    console.log(this.state)
+  }
+
   render () {
     const { name, description, tags, suggestions } = this.state
     return (
       <Container className='padme'>
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
-            <Form>
+            <Form onSubmit={(e) => this.submitHandler(e)}>
               <Form.Group controlId='formGroupName'>
                 <Form.Label>Name:</Form.Label>
                 <Form.Control autoFocus minLength='5' maxLength='20' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />

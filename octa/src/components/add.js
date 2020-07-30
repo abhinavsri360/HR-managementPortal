@@ -65,13 +65,18 @@ class add extends Component {
     this.setState({ tags: newTags })
   }
 
+  submitHandler (e) {
+    e.preventDefault()
+    console.log(this.state)
+  }
+
   render () {
     const { jobcode, name, notes, tags, notice, salary, suggestions } = this.state
     return (
       <Container className='padme'>
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
-            <Form>
+            <Form onSubmit={(e) => this.submitHandler(e)}>
               <Form.Group controlId='formGroupJob'>
                 <Form.Label>JobCode:</Form.Label>
                 <Form.Control autoFocus autoComplete='off' required type='text' placeholder='Job Code' name='jobcode' value={jobcode} onChange={(e) => this.handlechange(e)} />
