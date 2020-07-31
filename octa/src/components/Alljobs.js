@@ -1,14 +1,17 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function EachJob ({ job }) {
   return (
     <Card>
-      <Card.Title>
-        {job.name}
-      </Card.Title>
-      <Card.Text>{job.description}</Card.Text>
-      <Card.Footer>{job.technology[0].text}</Card.Footer>
+      <Link to={`/available_jobs/${job._id}`}>
+        <Card.Title>
+          {job.name}
+        </Card.Title>
+        <Card.Text>{job.description}</Card.Text>
+        <Card.Footer>{job.technology[0].text}</Card.Footer>
+      </Link>
     </Card>
   )
 }

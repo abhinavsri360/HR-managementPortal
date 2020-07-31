@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 import { baseUrl } from '../shared/baseUrl'
-// import fetch from 'cross-fetch'
+import fetch from 'cross-fetch'
 
 export const jobsLoading = () => ({
   type: ActionTypes.JOBS_LOADING

@@ -6,7 +6,7 @@ function navbar () {
   return (
     <>
       <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
-        <Navbar.Brand><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/'>OctaPortal</Link></Navbar.Brand>
+        <Navbar.Brand><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/home'>OctaPortal</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='mr-auto'>

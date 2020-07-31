@@ -68,6 +68,16 @@ class add extends Component {
   submitHandler (e) {
     e.preventDefault()
     console.log(this.state)
+    var applicant = {
+      jobid: this.state.jobcode,
+      name: this.state.name,
+      notes: this.state.notes,
+      technology: this.state.tags,
+      notice: this.state.notice,
+      salary: this.state.salary
+    }
+    this.props.postApplicant(applicant)
+    window.location = '/'
   }
 
   render () {

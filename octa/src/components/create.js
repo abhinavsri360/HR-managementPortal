@@ -65,6 +65,13 @@ class create extends Component {
   submitHandler (e) {
     e.preventDefault()
     console.log(this.state)
+    var job = {
+      name: this.state.name,
+      description: this.state.description,
+      technology: this.state.tags
+    }
+    this.props.postJob(job)
+    window.location = '/'
   }
 
   render () {
