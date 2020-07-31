@@ -15,6 +15,9 @@ const JobDetail = (props) => {
             <b>Name: </b>{props.job.name}
           </div>
           <div className='row'>
+            <b>Job Id: </b>{props.job._id}
+          </div>
+          <div className='row'>
             <b>Description: </b>{props.job.description}
           </div>
           <div className='row'>
