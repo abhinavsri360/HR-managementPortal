@@ -1,31 +1,28 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import './css/all.css'
 
 function EachApplicant ({ applicant }) {
   return (
     <Card>
-      <Card.Title>
-        {applicant.name}
-      </Card.Title>
-      <Card.Text>Job Id: {applicant.jobid}
+      <Link className='applicantCard' to={`/available_applicants/${applicant.applicantid}`}>
+        <Card.Title>
+          {applicant.name}
+        </Card.Title>
+        <Card.Text>Job Id: {applicant.jobid}
       Applicant Id: {applicant.applicantid}
       Notes: {applicant.notes}
-      </Card.Text>
-      <Card.Footer>Major Tech: {applicant.technology[0].text}</Card.Footer>
-      <Card.Footer>Notice period: {applicant.notice}</Card.Footer>
-      <Card.Footer>Salary: {applicant.salary}</Card.Footer>
+        </Card.Text>
+        <Card.Footer>Technologies: {applicant.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</Card.Footer>
+        <Card.Footer>Notice period: {applicant.notice}</Card.Footer>
+        <Card.Footer>Salary: {applicant.salary}</Card.Footer>
+      </Link>
     </Card>
   )
 }
 
 const Allapplicants = (props) => {
-  const applicants = props.applicants.applicants.map((applicant) => {
-    return (
-      <div key={applicant.id} className='col-12 col-md-3 m-1'>
-        <EachApplicant applicant={applicant} />
-      </div>
-    )
-  })
   if (props.applicants.isLoading) {
     return (
       <p>Loading...</p>
@@ -35,6 +32,13 @@ const Allapplicants = (props) => {
       <p>Error in Loading</p>
     )
   } else {
+    const applicants = props.applicants.applicants.map((applicant) => {
+      return (
+        <div key={applicant._id} className='col-12 col-md-3 m-1'>
+          <EachApplicant applicant={applicant} />
+        </div>
+      )
+    })
     return (
       <div className='container'>
         <div className='row'>

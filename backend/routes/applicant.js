@@ -21,7 +21,7 @@ applicantRouter.route('/')
   .post(cors.corsWithOptions, (req, res, next) => {
     Applicant.create(req.body)
       .then((applicant) => {
-        console.log('Applicant Registered')
+        console.log('Applicant Registered', applicant)
         res.statusCode = 200
         res.setHeader('Content-type', 'application/json')
         res.json(applicant)

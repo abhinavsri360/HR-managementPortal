@@ -1,16 +1,16 @@
 import React from 'react'
 
-const JobDetail = (props) => {
+const ApplicantDetail = (props) => {
   if (props.isLoading) {
     return (
       <div>
         <p>Loading...</p>
       </div>
     )
-  } else if (props.job != null) {
+  } else if (props.applicant != null) {
     return (
       <div>
-        <p>{props.job.name}</p>
+        <p>{props.applicant.name}</p>
       </div>
     )
   } else {
@@ -20,4 +20,4 @@ const JobDetail = (props) => {
   }
 }
 
-export default JobDetail
+export default ApplicantDetail

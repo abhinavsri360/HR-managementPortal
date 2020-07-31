@@ -6,6 +6,11 @@ var Applicant = new Schema({
     type: String,
     required: true
   },
+  applicantid: {
+    type: String,
+    required: true,
+    unique: true
+  },
   name: {
     type: String,
     required: true

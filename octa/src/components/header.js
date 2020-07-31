@@ -6,7 +6,9 @@ import Create from './create'
 import PageNotFound from './PageNotFound'
 import Alljobs from './Alljobs'
 import JobDetail from './jobDetail'
+import ApplicantDetail from './applicantDetail'
 import Allapplicants from './Allapplicants'
+import Tag from './tag'
 import { connect } from 'react-redux'
 import { Switch, withRouter, Route, Redirect } from 'react-router-dom'
 import { fetchJobs, fetchApplicants, postJob, postApplicant } from '../redux/ActionCreators'
@@ -26,6 +28,14 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class header extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      tagnumber: this.props.applicants.applicants.length + 1
+    }
+  }
+
   componentDidMount () {
     this.props.fetchJobs()
     this.props.fetchApplicants()
@@ -36,6 +46,25 @@ class header extends Component {
       return (
         <JobDetail
           job={this.props.jobs.jobs.filter((job) => job._id === match.params.jobId)[0]}
+          isLoading={this.props.jobs.isLoading}
+        />
+      )
+    }
+
+    const ApplicantWithId = ({ match }) => {
+      return (
+        <ApplicantDetail
+          applicant={this.props.applicants.applicants.filter((applicant) => applicant.applicantid === match.params.applicantId)[0]}
+          isLoading={this.props.applicants.isLoading}
+        />
+      )
+    }
+
+    const AddApplicant = () => {
+      return (
+        <Add
+          postApplicant={this.props.postApplicant}
+          applicants={this.props.applicants}
         />
       )
     }
@@ -48,10 +77,12 @@ class header extends Component {
           <Route exact path='/available_jobs' component={() => <Alljobs jobs={this.props.jobs} />} />
           <Route path='/available_jobs/:jobId' component={JobWithId} />
           <Route exact path='/available_applicants' component={() => <Allapplicants applicants={this.props.applicants} />} />
-          <Route path='/apply' component={() => <Add postApplicant={this.props.postApplicant} />} />
+          <Route path='/available_applicants/:applicantId' component={ApplicantWithId} />
+          <Route path='/apply' component={AddApplicant} />
           <Route path='/post_job' component={() => <Create postJob={this.props.postJob} />} />
+          <Route path='/tag' component={() => <Tag tagnumber={this.state.tagnumber} />} />
           <Route path='/404' component={PageNotFound} />
-          <Redirect to='/404' />
+          <Redirect to='/home' />
         </Switch>
       </>
     )

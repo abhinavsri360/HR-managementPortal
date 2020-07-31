@@ -16,10 +16,12 @@ class add extends Component {
 
     this.state = {
       jobcode: '',
+      applicantid: '',
       name: '',
       notes: '',
       notice: '',
       salary: '',
+      link: '',
       tags: [],
       suggestions: [
         { id: 'English', text: 'English' },
@@ -70,6 +72,7 @@ class add extends Component {
     console.log(this.state)
     var applicant = {
       jobid: this.state.jobcode,
+      applicantid: this.state.applicantid,
       name: this.state.name,
       notes: this.state.notes,
       technology: this.state.tags,
@@ -77,7 +80,13 @@ class add extends Component {
       salary: this.state.salary
     }
     this.props.postApplicant(applicant)
-    window.location = '/'
+    window.location = '/tag'
+  }
+
+  componentDidMount () {
+    this.setState({
+      applicantid: this.props.applicants.applicants.length + 1
+    })
   }
 
   render () {

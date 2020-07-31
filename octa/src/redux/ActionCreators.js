@@ -38,8 +38,6 @@ export const fetchJobs = () => (dispatch) => {
 }
 
 export const postJob = (job) => (dispatch) => {
-  dispatch(jobsLoading(true))
-
   return fetch(baseUrl + 'job', {
     method: 'POST',
     body: JSON.stringify(job),
@@ -103,8 +101,6 @@ export const fetchApplicants = () => (dispatch) => {
 }
 
 export const postApplicant = (applicant) => (dispatch) => {
-  dispatch(applicantsLoading(true))
-
   return fetch(baseUrl + 'applicant', {
     method: 'POST',
     body: JSON.stringify(applicant),
