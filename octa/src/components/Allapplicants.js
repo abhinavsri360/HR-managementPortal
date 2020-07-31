@@ -1,22 +1,20 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './css/all.css'
 
 function EachApplicant ({ applicant }) {
   return (
-    <Card>
-      <Link className='applicantCard' to={`/available_applicants/${applicant.applicantid}`}>
-        <Card.Title>
-          {applicant.name}
-        </Card.Title>
-        <Card.Text>Job Id: {applicant.jobid}
-      Applicant Id: {applicant.applicantid}
-      Notes: {applicant.notes}
-        </Card.Text>
-        <Card.Footer>Technologies: {applicant.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</Card.Footer>
-        <Card.Footer>Notice period: {applicant.notice}</Card.Footer>
-        <Card.Footer>Salary: {applicant.salary}</Card.Footer>
+    <Card style={{ width: '18rem' }}>
+      <Link className='noDecoration' to={`/available_applicants/${applicant.applicantid}`}>
+        <Card.Body>
+          <Card.Title>{applicant.name}</Card.Title>
+          <Card.Subtitle className='mb-2 text-muted'><b>JobID:</b>{applicant.jobid}</Card.Subtitle>
+          <Card.Subtitle>TechStack:</Card.Subtitle>
+          <ListGroup.Item>{applicant.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</ListGroup.Item>
+          <Card.Footer style={{ backgroundColor: 'white' }}>Notice period: {applicant.notice}</Card.Footer>
+          <Card.Footer style={{ backgroundColor: 'white' }}>Salary: {applicant.salary}</Card.Footer>
+        </Card.Body>
       </Link>
     </Card>
   )

@@ -9,8 +9,18 @@ const JobDetail = (props) => {
     )
   } else if (props.job != null) {
     return (
-      <div>
-        <p>{props.job.name}</p>
+      <div className='container'>
+        <div className='col'>
+          <div className='row'>
+            <b>Name: </b>{props.job.name}
+          </div>
+          <div className='row'>
+            <b>Description: </b>{props.job.description}
+          </div>
+          <div className='row'>
+            <b>TechStack: </b>{props.job.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}
+          </div>
+        </div>
       </div>
     )
   } else {

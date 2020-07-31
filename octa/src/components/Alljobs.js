@@ -5,13 +5,17 @@ import './css/all.css'
 
 function EachJob ({ job }) {
   return (
-    <Card>
-      <Link className='jobCard' to={`/available_jobs/${job._id}`}>
-        <Card.Title>
-          {job.name}
-        </Card.Title>
-        <Card.Text>{job.description}</Card.Text>
-        <Card.Footer>{job.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</Card.Footer>
+    <Card style={{ width: '18rem' }}>
+      <Link className='noDecoration' to={`/available_jobs/${job._id}`}>
+        <Card.Body>
+          <Card.Title>{job.name}</Card.Title>
+          <Card.Subtitle className='mb-2 text-muted'>Description</Card.Subtitle>
+          <Card.Text>
+            {job.description}
+          </Card.Text>
+          <Card.Subtitle>TechStack Required</Card.Subtitle>
+          <Card.Text>{job.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</Card.Text>
+        </Card.Body>
       </Link>
     </Card>
   )

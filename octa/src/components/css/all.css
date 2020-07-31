@@ -1,5 +1,5 @@
-a {
-    text-decoration: none;
-    text-decoration-style: none;
-    text-decoration-color: none;
+.noDecoration {
+    text-decoration: none!important;
+    text-decoration: inherit!important;
+    color: inherit!important;
 }
