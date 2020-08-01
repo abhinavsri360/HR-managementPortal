@@ -9,7 +9,7 @@ class search extends Component {
         <div className='container'>
           <div className='row search-row'>
             <form>
-              <input autoComplete='off' id='searchbar' type='text' placeholder='Search...' name='search' />
+              <input autoComplete='off' id='searchbar' type='text' placeholder='Search for anything Job/Applicant :)' name='search' />
               <Icon id='search-btn' name='search' size='large' color='black' />
             </form>
           </div>
