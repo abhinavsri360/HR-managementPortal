@@ -5,7 +5,7 @@ import './css/all.css'
 import { Input } from 'semantic-ui-react'
 
 class SearchedApplicants extends Component {
-  render() {
+  render () {
     var applicants = this.props.allapplicants.map((applicant) => {
       return (
         <div key={applicant._id} className='col-12 col-md-3 m-1'>
@@ -32,14 +32,13 @@ class SearchedApplicants extends Component {
   }
 }
 
-
 class AllApplicants extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
-  
+
     this.state = {
-       search: '',
-       allapplicants: []
+      search: '',
+      allapplicants: []
     }
   }
 
@@ -47,7 +46,7 @@ class AllApplicants extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  componentDidMount(){
+  componentDidMount () {
     this.setState({
       allapplicants: this.props.applicants.applicants
     })
@@ -56,8 +55,8 @@ class AllApplicants extends Component {
   dynamicSearch = () => {
     return this.state.allapplicants.filter(applicant => JSON.stringify(applicant).toLowerCase().includes(this.state.search.toLowerCase()))
   }
-  
-  render() {
+
+  render () {
     if (this.props.applicants.isLoading) {
       return (
         <p>Loading...</p>
