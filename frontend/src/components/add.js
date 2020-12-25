@@ -80,7 +80,8 @@ class add extends Component {
       salary: this.state.salary
     }
     this.props.postApplicant(applicant)
-    window.location = '/tag'
+    window.location = '/home'
+    window.reload()
   }
 
   componentDidMount () {

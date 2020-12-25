@@ -64,7 +64,7 @@ class Alljobs extends Component {
       )
     } else if (this.props.jobs.errMess) {
       return (
-        <p>Error in Loading</p>
+        <h4>Try again Later</h4>
       )
     } else {
       // console.log(this.props.alljobs)

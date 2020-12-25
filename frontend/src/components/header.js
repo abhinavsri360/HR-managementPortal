@@ -8,7 +8,6 @@ import Alljobs from './Alljobs'
 import JobDetail from './jobDetail'
 import ApplicantDetail from './applicantDetail'
 import Allapplicants from './Allapplicants'
-import Tag from './tag'
 import { connect } from 'react-redux'
 import { Switch, withRouter, Route, Redirect } from 'react-router-dom'
 import { fetchJobs, fetchApplicants, postJob, postApplicant } from '../redux/ActionCreators'
@@ -31,9 +30,7 @@ class header extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {
-      tagnumber: this.props.applicants.applicants.length + 1
-    }
+    this.state = {}
   }
 
   componentDidMount () {
@@ -80,7 +77,6 @@ class header extends Component {
           <Route path='/available_applicants/:applicantId' component={ApplicantWithId} />
           <Route path='/apply' component={AddApplicant} />
           <Route path='/post_job' component={() => <Create postJob={this.props.postJob} />} />
-          <Route path='/tag' component={() => <Tag tagnumber={this.state.tagnumber} />} />
           <Route path='/404' component={PageNotFound} />
           <Redirect to='/home' />
         </Switch>

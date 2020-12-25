@@ -10,12 +10,12 @@ function navbar () {
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='mr-auto'>
-            <Nav.Link><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/available_jobs'>View Jobs</Link></Nav.Link>
-            <Nav.Link><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/available_applicants'>View Applicants</Link></Nav.Link>
+            <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/available_jobs'>View Jobs</Link>
+            <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/available_applicants'>View Applicants</Link>
           </Nav>
           <Nav className='ml-auto'>
-            <Nav.Link><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/post_job'>Create Job</Link></Nav.Link>
-            <Nav.Link><Link style={{ textDecoration: 'inherit', color: 'inherit' }} to='/apply'>Apply for Job</Link></Nav.Link>
+            <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/post_job'>Create Job</Link>
+            <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/apply'>Apply for Job</Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

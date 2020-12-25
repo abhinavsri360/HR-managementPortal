@@ -61,7 +61,7 @@ class AllApplicants extends Component {
       )
     } else if (this.props.applicants.errMess) {
       return (
-        <p>Error in Loading</p>
+        <h4>Try again Later</h4>
       )
     } else {
       return (
