@@ -75,46 +75,52 @@ class create extends Component {
   }
 
   render () {
-    const { name, description, tags, suggestions } = this.state
-    return (
-      <Container className='padme'>
-        <Row>
-          <Col md={{ span: 4, offset: 4 }}>
-            <Form onSubmit={(e) => this.submitHandler(e)}>
-              <Form.Group controlId='formGroupName'>
-                <Form.Label>Firm Name:</Form.Label>
-                <Form.Control autoFocus minLength='5' maxLength='40' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />
-              </Form.Group>
-              <Form.Group controlId='formGroupDescription'>
-                <Form.Label>Description</Form.Label>
-                <Form.Control minLength='20' required as='textarea' autoComplete='off' rows='3' placeholder='Description' name='description' value={description} onChange={(e) => this.handlechange(e)} />
-              </Form.Group>
-              <Form.Group controlId='formGroupTech'>
-                <Form.Label>Technologies</Form.Label>
-                <ReactTags
-                  required
-                  placeholder='Add Technology'
-                  name='tech'
-                  id='tech'
-                  autofocus={false}
-                  tags={tags}
-                  suggestions={suggestions}
-                  handleDelete={this.onhandleDelete}
-                  handleAddition={this.onhandleAddition}
-                  handleDrag={this.onhandleDrag}
-                  delimiters={delimiters}
-                />
-              </Form.Group>
-              <Form.Group as={Row}>
-                <Col sm={{ span: 8, offset: 4 }}>
-                  <Button type='submit' variant='dark'>Create</Button>
-                </Col>
-              </Form.Group>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
-    )
+    if (!this.props.isAuthenticated) {
+      return (
+        window.location = '/'
+      )
+    } else {
+      const { name, description, tags, suggestions } = this.state
+      return (
+        <Container className='padme'>
+          <Row>
+            <Col md={{ span: 4, offset: 4 }}>
+              <Form onSubmit={(e) => this.submitHandler(e)}>
+                <Form.Group controlId='formGroupName'>
+                  <Form.Label>Firm Name:</Form.Label>
+                  <Form.Control autoFocus minLength='5' maxLength='40' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />
+                </Form.Group>
+                <Form.Group controlId='formGroupDescription'>
+                  <Form.Label>Description</Form.Label>
+                  <Form.Control minLength='20' required as='textarea' autoComplete='off' rows='3' placeholder='Description' name='description' value={description} onChange={(e) => this.handlechange(e)} />
+                </Form.Group>
+                <Form.Group controlId='formGroupTech'>
+                  <Form.Label>Technologies</Form.Label>
+                  <ReactTags
+                    required
+                    placeholder='Add Technology'
+                    name='tech'
+                    id='tech'
+                    autofocus={false}
+                    tags={tags}
+                    suggestions={suggestions}
+                    handleDelete={this.onhandleDelete}
+                    handleAddition={this.onhandleAddition}
+                    handleDrag={this.onhandleDrag}
+                    delimiters={delimiters}
+                  />
+                </Form.Group>
+                <Form.Group as={Row}>
+                  <Col sm={{ span: 8, offset: 4 }}>
+                    <Button type='submit' variant='dark'>Create</Button>
+                  </Col>
+                </Form.Group>
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+      )
+    }
   }
 }
 

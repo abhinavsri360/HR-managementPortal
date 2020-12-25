@@ -55,23 +55,29 @@ class AllApplicants extends Component {
   }
 
   render () {
-    if (this.props.applicants.isLoading) {
+    if (!this.props.isAuthenticated) {
       return (
-        <p>Loading...</p>
-      )
-    } else if (this.props.applicants.errMess) {
-      return (
-        <h4>Try again Later</h4>
+        window.location = '/'
       )
     } else {
-      return (
-        <div className='container'>
-          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
-          <div className='row'>
-            <SearchedApplicants allapplicants={this.dynamicSearch()} />
+      if (this.props.applicants.isLoading) {
+        return (
+          <p>Loading...</p>
+        )
+      } else if (this.props.applicants.errMess) {
+        return (
+          <h4>Try again Later</h4>
+        )
+      } else {
+        return (
+          <div className='container'>
+            <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
+            <div className='row'>
+              <SearchedApplicants allapplicants={this.dynamicSearch()} />
+            </div>
           </div>
-        </div>
-      )
+        )
+      }
     }
   }
 }

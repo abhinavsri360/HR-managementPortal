@@ -58,24 +58,30 @@ class Alljobs extends Component {
   }
 
   render () {
-    if (this.props.jobs.isLoading) {
+    if (!this.props.isAuthenticated) {
       return (
-        <p>Loading...</p>
-      )
-    } else if (this.props.jobs.errMess) {
-      return (
-        <h4>Try again Later</h4>
+        window.location = '/'
       )
     } else {
-      // console.log(this.props.alljobs)
-      return (
-        <div className='container'>
-          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
-          <div className='row'>
-            <SearchedJobs alljobs={this.dynamicSearch()} />
+      if (this.props.jobs.isLoading) {
+        return (
+          <p>Loading...</p>
+        )
+      } else if (this.props.jobs.errMess) {
+        return (
+          <h4>Try again Later</h4>
+        )
+      } else {
+        // console.log(this.props.alljobs)
+        return (
+          <div className='container'>
+            <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
+            <div className='row'>
+              <SearchedJobs alljobs={this.dynamicSearch()} />
+            </div>
           </div>
-        </div>
-      )
+        )
+      }
     }
   }
 }
