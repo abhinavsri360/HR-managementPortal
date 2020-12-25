@@ -82,8 +82,8 @@ class create extends Component {
           <Col md={{ span: 4, offset: 4 }}>
             <Form onSubmit={(e) => this.submitHandler(e)}>
               <Form.Group controlId='formGroupName'>
-                <Form.Label>Name:</Form.Label>
-                <Form.Control autoFocus minLength='5' maxLength='20' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />
+                <Form.Label>Firm Name:</Form.Label>
+                <Form.Control autoFocus minLength='5' maxLength='40' autoComplete='off' required type='name' placeholder='Name' name='name' value={name} onChange={(e) => this.handlechange(e)} />
               </Form.Group>
               <Form.Group controlId='formGroupDescription'>
                 <Form.Label>Description</Form.Label>
@@ -107,7 +107,7 @@ class create extends Component {
               </Form.Group>
               <Form.Group as={Row}>
                 <Col sm={{ span: 8, offset: 4 }}>
-                  <Button type='submit' variant='dark'>Post</Button>
+                  <Button type='submit' variant='dark'>Create</Button>
                 </Col>
               </Form.Group>
             </Form>

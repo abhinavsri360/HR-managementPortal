@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './css/all.css'
 import { Input } from 'semantic-ui-react'
@@ -18,7 +18,7 @@ class SearchedJobs extends Component {
                   {job.description}
                 </Card.Text>
                 <Card.Subtitle>TechStack Required</Card.Subtitle>
-                <Card.Text>{job.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</Card.Text>
+                <ListGroup.Item>{job.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</ListGroup.Item>
               </Card.Body>
             </Link>
           </Card>
@@ -67,9 +67,10 @@ class Alljobs extends Component {
         <p>Error in Loading</p>
       )
     } else {
+      // console.log(this.props.alljobs)
       return (
         <div className='container'>
-          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' icon='search' />
+          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
           <div className='row'>
             <SearchedJobs alljobs={this.dynamicSearch()} />
           </div>

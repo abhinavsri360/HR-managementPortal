@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, ListGroup } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './css/all.css'
 import { Input } from 'semantic-ui-react'
@@ -13,11 +13,9 @@ class SearchedApplicants extends Component {
             <Link className='noDecoration' to={`/available_applicants/${applicant.applicantid}`}>
               <Card.Body>
                 <Card.Title>{applicant.name}</Card.Title>
-                <Card.Subtitle className='mb-2 text-muted'><b>JobID:</b>{applicant.jobid}</Card.Subtitle>
-                <Card.Subtitle>TechStack:</Card.Subtitle>
-                <ListGroup.Item>{applicant.technology.map((tech) => <p key={tech.id}>{tech.text}</p>)}</ListGroup.Item>
-                <Card.Footer style={{ backgroundColor: 'white' }}>Notice period: {applicant.notice}</Card.Footer>
-                <Card.Footer style={{ backgroundColor: 'white' }}>Salary: {applicant.salary}</Card.Footer>
+                <Card.Subtitle className='mb-2 text-muted'><b>JobID:</b>{applicant.jobid.substring(0, 6)}</Card.Subtitle>
+                <Card.Footer style={{ backgroundColor: 'white' }}>Notice period(months): {applicant.notice}</Card.Footer>
+                <Card.Footer style={{ backgroundColor: 'white' }}>Salary: Rs. {applicant.salary}</Card.Footer>
               </Card.Body>
             </Link>
           </Card>
@@ -68,7 +66,7 @@ class AllApplicants extends Component {
     } else {
       return (
         <div className='container'>
-          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' icon='search' />
+          <Input className='col-md-10' placeholder='Anything...' style={{ padding: '20px' }} name='search' onChange={(e) => this.handlechange(e)} label='Search by' />
           <div className='row'>
             <SearchedApplicants allapplicants={this.dynamicSearch()} />
           </div>
