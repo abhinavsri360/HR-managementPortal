@@ -25,7 +25,7 @@ export class signup extends Component {
     var user = {
       username: this.state.username,
       password: this.state.password,
-      admin: true
+      admin: this.state.admin
     }
 
     this.props.registerUser(user)
@@ -86,7 +86,7 @@ export class signup extends Component {
                     </Form.Label>
                     <Col sm={10}>
                       <div onChange={this.changeHandler} required value={admin} defaultChecked={this.state.admin}>
-                        <input type='radio' checked value={true} name='admin' /> Job Creator
+                        <input type='radio' defaultChecked value={true} name='admin' /> Job Creator
                         <input type='radio' value={false} name='admin' /> Job Getter
                       </div>
                     </Col>

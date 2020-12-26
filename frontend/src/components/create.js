@@ -80,6 +80,11 @@ class create extends Component {
         window.location = '/'
       )
     } else {
+      if (!this.props.isAdmin.includes('true')) {
+        return (
+          window.location = '/'
+        )
+      }
       const { name, description, tags, suggestions } = this.state
       return (
         <Container className='padme'>

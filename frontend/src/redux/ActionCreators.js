@@ -234,7 +234,9 @@ export const loginUser = (creds) => (dispatch) => {
       if (response.success) {
         localStorage.setItem('token', response.token)
         localStorage.setItem('creds', JSON.stringify(creds))
-        // window.alert(response.admin)
+        localStorage.setItem('isAdmin', response.admin)
+        // console.log(response.admin)
+        // window.alert('Hello')
         dispatch(receiveLogin(response))
       } else {
         var error = new Error('Error ' + response.status)

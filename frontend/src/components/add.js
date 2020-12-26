@@ -96,6 +96,11 @@ class add extends Component {
         window.location = '/'
       )
     } else {
+      if (this.props.isAdmin.includes('true')) {
+        return (
+          window.location = '/'
+        )
+      }
       const { jobcode, name, notes, tags, notice, salary, suggestions } = this.state
       return (
         <Container className='padme'>

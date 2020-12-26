@@ -60,6 +60,11 @@ class AllApplicants extends Component {
         window.location = '/'
       )
     } else {
+      if (!this.props.isAdmin.includes('true')) {
+        return (
+          window.location = '/'
+        )
+      }
       if (this.props.applicants.isLoading) {
         return (
           <p>Loading...</p>

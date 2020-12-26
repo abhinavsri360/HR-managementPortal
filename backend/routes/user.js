@@ -45,7 +45,8 @@ router.route('/login')
     var token = authenticate.getToken({ _id: req.user._id })
     res.statusCode = 200
     res.setHeader('Content-type', 'application/json')
-    res.json({ success: true, token: token, status: 'You are successfully logged in!' })
+    // console.log(req.user)
+    res.json({ success: true, token: token, admin: req.user.admin, status: 'You are successfully logged in!' })
   })
 
 router.route('/logout')

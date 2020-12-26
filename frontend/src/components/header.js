@@ -45,6 +45,7 @@ class header extends Component {
   }
 
   render () {
+    // console.log('Admin', this.props.auth.isAdmin)
     const SignupPage = () => {
       return (
         <Signup isAuthenticated={this.props.auth.isAuthenticated} isLoading={this.props.auth.isLoading} registerUser={this.props.registerUser} />
@@ -79,6 +80,7 @@ class header extends Component {
     const AddApplicant = () => {
       return (
         <Add
+          isAdmin={this.props.auth.isAdmin}
           isAuthenticated={this.props.auth.isAuthenticated}
           postApplicant={this.props.postApplicant}
           applicants={this.props.applicants}
@@ -88,17 +90,17 @@ class header extends Component {
 
     return (
       <>
-        <Navbar isAuthenticated={this.props.auth.isAuthenticated} logoutUser={this.props.logoutUser} />
+        <Navbar isAdmin={this.props.auth.isAdmin} isAuthenticated={this.props.auth.isAuthenticated} logoutUser={this.props.logoutUser} />
         <Switch>
           <Route path='/home' component={Search} />
           <Route path='/signin' component={SigninPage} />
           <Route path='/signup' component={SignupPage} />
-          <Route exact path='/available_jobs' component={() => <Alljobs isAuthenticated={this.props.auth.isAuthenticated} jobs={this.props.jobs} />} />
-          <Route path='/available_jobs/:jobId' component={JobWithId} />
-          <Route exact path='/available_applicants' component={() => <Allapplicants isAuthenticated={this.props.auth.isAuthenticated} applicants={this.props.applicants} />} />
-          <Route path='/available_applicants/:applicantId' component={ApplicantWithId} />
+          <Route exact path='/jobs' component={() => <Alljobs isAdmin={this.props.auth.isAdmin} isAuthenticated={this.props.auth.isAuthenticated} jobs={this.props.jobs} />} />
+          <Route path='/jobs/:jobId' component={JobWithId} />
+          <Route exact path='/applicants' component={() => <Allapplicants isAdmin={this.props.auth.isAdmin} isAuthenticated={this.props.auth.isAuthenticated} applicants={this.props.applicants} />} />
+          <Route path='/applicants/:applicantId' component={ApplicantWithId} />
           <Route path='/apply' component={AddApplicant} />
-          <Route path='/post_job' component={() => <Create isAuthenticated={this.props.auth.isAuthenticated} postJob={this.props.postJob} />} />
+          <Route path='/post_job' component={() => <Create isAdmin={this.props.auth.isAdmin} isAuthenticated={this.props.auth.isAuthenticated} postJob={this.props.postJob} />} />
           <Route path='/404' component={PageNotFound} />
           <Redirect to='/home' />
         </Switch>

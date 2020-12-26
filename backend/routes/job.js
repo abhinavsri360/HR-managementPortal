@@ -21,7 +21,7 @@ jobRouter.route('/')
   .post(cors.corsWithOptions, (req, res, next) => {
     Job.create(req.body)
       .then((job) => {
-        console.log('Job Registered')
+        // console.log('Job Registered')
         res.statusCode = 200
         res.setHeader('Content-type', 'application/json')
         res.json(job)

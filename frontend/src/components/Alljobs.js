@@ -63,6 +63,11 @@ class Alljobs extends Component {
         window.location = '/'
       )
     } else {
+      if (this.props.isAdmin.includes('true')) {
+        return (
+          window.location = '/'
+        )
+      }
       if (this.props.jobs.isLoading) {
         return (
           <p>Loading...</p>

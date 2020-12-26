@@ -17,6 +17,7 @@ class navbar extends Component {
   render() {
   // console.log(this.props.isAuthenticated)
   if (this.props.isAuthenticated) {
+    // console.log('Admin', this.props.isAdmin)
     return (
       <>
         <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>
@@ -24,12 +25,10 @@ class navbar extends Component {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mr-auto'>
-              <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/available_jobs'>View Jobs</Link>
-              <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/available_applicants'>View Applicants</Link>
+              { this.props.isAdmin.includes('true') ? (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/applicants'>View Applicants</Link>) : (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/jobs'>View Jobs</Link>)}
             </Nav>
             <Nav className='ml-auto'>
-              <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/post_job'>Create Job</Link>
-              <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/apply'>Apply for Job</Link>
+              { this.props.isAdmin.includes('true') ? (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/post_job'>Create Job</Link>) : (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/apply'>Apply for Job</Link>)}
               <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/' onClick={this.submitHandler}>Logout</Link>
             </Nav>
           </Navbar.Collapse>

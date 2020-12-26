@@ -2,6 +2,7 @@ import * as ActionTypes from './ActionTypes'
 
 export const Auth = (state = {
   isLoading: false,
+  isAdmin: localStorage.getItem('isAdmin'),
   isAuthenticated: !!localStorage.getItem('token'),
   token: localStorage.getItem('token'),
   user: localStorage.getItem('creds') ? JSON.parse(localStorage.getItem('creds')) : null,
