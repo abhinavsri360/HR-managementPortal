@@ -233,9 +233,9 @@ export const loginUser = (creds) => (dispatch) => {
     .then(response => {
       if (response.success) {
         localStorage.setItem('token', response.token)
-        localStorage.setItem('creds', JSON.stringify(creds))
+        // localStorage.setItem('creds', JSON.stringify(creds))
         localStorage.setItem('isAdmin', response.admin)
-        // console.log(response.admin)
+        // console.log(response)
         // window.alert('Hello')
         dispatch(receiveLogin(response))
       } else {

@@ -33,11 +33,11 @@ exports.jwtPassport = passport.use(new JwtStrategy(opts, (jwt_payload, done) => 
 }))
 
 exports.verifyUser = passport.authenticate('jwt', { session: false })
-/* exports.verifyAdmin = (user) => {
+exports.verifyAdmin = (user) => {
   var admin = user.admin
   if (admin) {
     return true
   } else {
     return false
   }
-} */
+}
