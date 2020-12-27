@@ -10,7 +10,7 @@ class SearchedJobs extends Component {
       return (
         <div key={job._id} className='col-12 col-md-3 m-1'>
           <Card style={{ width: '18rem' }}>
-            <Link className='noDecoration' to={`/available_jobs/${job._id}`}>
+            <Link className='noDecoration' to={`/jobs/${job._id}`}>
               <Card.Body>
                 <Card.Title>{job.name}</Card.Title>
                 <Card.Subtitle className='mb-2 text-muted'>Description</Card.Subtitle>
@@ -63,11 +63,6 @@ class Alljobs extends Component {
         window.location = '/'
       )
     } else {
-      if (this.props.isAdmin.includes('true')) {
-        return (
-          window.location = '/'
-        )
-      }
       if (this.props.jobs.isLoading) {
         return (
           <p>Loading...</p>

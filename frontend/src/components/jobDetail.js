@@ -1,7 +1,7 @@
 import React from 'react'
 
 const JobDetail = (props) => {
-  if (this.props.isAuthenticated) {
+  if (!props.isAuthenticated) {
     return (
       window.location = '/'
     )

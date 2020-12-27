@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ApplicantDetail = (props) => {
-  if (this.props.isAuthenticated) {
+  if (!props.isAuthenticated) {
     return (
       window.location = '/'
     )

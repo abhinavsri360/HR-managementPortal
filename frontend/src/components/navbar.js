@@ -25,7 +25,8 @@ class navbar extends Component {
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav'>
             <Nav className='mr-auto'>
-              { this.props.isAdmin.includes('true') ? (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/applicants'>View Applicants</Link>) : (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/jobs'>View Jobs</Link>)}
+              { this.props.isAdmin.includes('true') ? (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/applicants'>View Applicants</Link>) : (<></>)}
+              <Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/jobs'>View Jobs</Link>
             </Nav>
             <Nav className='ml-auto'>
               { this.props.isAdmin.includes('true') ? (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/post_job'>Create Job</Link>) : (<Link className='nav-link' style={{ textDecoration: 'inherit', color: '#fff' }} to='/apply'>Apply for Job</Link>)}

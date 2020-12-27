@@ -10,7 +10,7 @@ class SearchedApplicants extends Component {
       return (
         <div key={applicant._id} className='col-12 col-md-3 m-1'>
           <Card style={{ width: '18rem' }}>
-            <Link className='noDecoration' to={`/available_applicants/${applicant.applicantid}`}>
+            <Link className='noDecoration' to={`/applicants/${applicant.applicantid}`}>
               <Card.Body>
                 <Card.Title>{applicant.name}</Card.Title>
                 <Card.Subtitle className='mb-2 text-muted'><b>JobID:</b>{applicant.jobid.substring(0, 6)}</Card.Subtitle>
