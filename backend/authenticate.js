@@ -10,7 +10,7 @@ require('dotenv/config')
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-
+ 
 exports.getToken = function (user) {
   return jwt.sign(user, process.env.SECRET, { expiresIn: 3000 })
 }
