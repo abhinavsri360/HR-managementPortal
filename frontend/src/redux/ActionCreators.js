@@ -26,6 +26,7 @@ export const fetchJobs = () => (dispatch) => {
       } else {
         var error = new Error('Error ' + res.status + ': ' + res.statusText)
         error.response = res
+        console.log("error", error)
         throw error
       }
     }, err => {
